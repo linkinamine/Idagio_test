@@ -17,9 +17,15 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".leak.LeakActivity">
+    <activity android:name=".leak.LeakActivity"/>
+    <activity
+      android:name=".service.AlwaysRunningServiceActivity"
+      android:launchMode="singleTask"/>
 
-    </activity>
+    <service
+      android:name=".service.AlwaysRunningService">
+    </service>
+
   </application>
 
 </manifest>
