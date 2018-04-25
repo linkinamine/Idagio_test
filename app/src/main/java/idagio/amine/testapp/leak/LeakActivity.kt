@@ -7,6 +7,7 @@ import android.widget.TextView
 import idagio.amine.testapp.IdagioTestApplication
 import idagio.amine.testapp.R
 import kotlinx.android.synthetic.main.activity_leak.*
+import java.lang.ref.WeakReference
 
 
 class LeakActivity : AppCompatActivity() {
@@ -17,7 +18,11 @@ class LeakActivity : AppCompatActivity() {
         NonLeakyThread(am_leaky_tv, this).start()
     }
 
-    private class NonLeakyThread(var view: TextView, var activity: Activity) : Thread() {
+    //We will be using weak reference to avoid the leak more details on Readme file
+    private class NonLeakyThread(textView: TextView, activity: Activity) : Thread() {
+
+        var view: WeakReference<TextView> = WeakReference(textView)
+        var activity: WeakReference<Activity> = WeakReference(activity)
 
         override fun run() {
             try {
@@ -26,7 +31,12 @@ class LeakActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            activity.runOnUiThread { view.text = "Hello" }
+            val textView = view.get()
+            val activity = activity.get()
+            //We check if none is null meaning we still hold their reference
+            if (textView != null && activity != null) {
+                activity.runOnUiThread({ textView.text = "Hello" })
+            }
         }
     }
 
