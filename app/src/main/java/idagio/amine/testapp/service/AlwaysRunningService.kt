@@ -15,7 +15,6 @@ class AlwaysRunningService : Service() {
     private val LOG_TAG = "AlwaysRunningService"
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-
         when {
             intent.action == Constants.STARTFOREGROUND_ACTION -> handleStartService()
             intent.action == Constants.STOPFOREGROUND_ACTION  -> handleStopService()
@@ -34,8 +33,7 @@ class AlwaysRunningService : Service() {
 
         val notification = createNotification(pendingIntent)
 
-        startForeground(Constants.FOREGROUND_SERVICE,
-            notification)
+        startForeground(Constants.FOREGROUND_SERVICE, notification)
     }
 
     private fun handleStopService() {
@@ -46,7 +44,7 @@ class AlwaysRunningService : Service() {
     }
 
     private fun createNotification(pendingIntent: PendingIntent?): Notification? {
-        return NotificationCompat.Builder(this)
+        return NotificationCompat.Builder(this, "channel_simple_notifications")
             .setContentTitle("Notification Service")
             .setTicker("Notification Service")
             .setContentText("I am running")
@@ -65,5 +63,4 @@ class AlwaysRunningService : Service() {
         // Used only in case of bound services.
         return null
     }
-
 }
