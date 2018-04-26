@@ -3,6 +3,7 @@ package idagio.amine.testapp
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import idagio.amine.testapp.dependency.DependencyInjectionActivity
 import idagio.amine.testapp.leak.LeakActivity
 import idagio.amine.testapp.service.AlwaysRunningServiceActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         }
         am_service_btn.setOnClickListener {
             startActivity(Intent(applicationContext, AlwaysRunningServiceActivity::class.java))
+        }
+        am_dependency_btn.setOnClickListener {
+            startActivity(Intent(applicationContext, DependencyInjectionActivity::class.java))
         }
     }
 }
