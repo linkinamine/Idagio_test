@@ -6,7 +6,7 @@ import com.squareup.leakcanary.LeakCanary
 import com.squareup.leakcanary.RefWatcher
 
 
-class IdagioTestApplication : Application() {
+open class IdagioApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -23,7 +23,7 @@ class IdagioTestApplication : Application() {
 
     companion object {
         fun getRefWatcher(context: Context): RefWatcher? {
-            val application = context.applicationContext as IdagioTestApplication
+            val application = context.applicationContext as IdagioApplication
             if (application.refWatcher != null)
                 return application.refWatcher
             return null

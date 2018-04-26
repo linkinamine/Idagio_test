@@ -4,7 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import idagio.amine.testapp.IdagioTestApplication
+import idagio.amine.testapp.IdagioApplication
 import idagio.amine.testapp.R
 import kotlinx.android.synthetic.main.activity_leak.*
 import java.lang.ref.WeakReference
@@ -42,6 +42,6 @@ class LeakActivity : AppCompatActivity() {
 
     public override fun onDestroy() {
         super.onDestroy()
-        IdagioTestApplication.getRefWatcher(this)?.watch(this);
+        IdagioApplication.getRefWatcher(this)?.watch(this);
     }
 }

@@ -3,10 +3,10 @@ package idagio.amine.testapp.dependency.models
 class Driver {
 
     fun enterCar(): String {
-        return "driver in the car"
+        return Const.DRIVER_IN
     }
 
     fun leaveCar(): String {
-        return "driver left the car"
+        return Const.DRIVER_OUT
     }
 }

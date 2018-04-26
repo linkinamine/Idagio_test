@@ -24,8 +24,6 @@ class DependencyInjectionActivity : AppCompatActivity() {
 
         ad_car_state_tv.text = car?.start()
 
-        Handler().postDelayed({
-            ad_car_state_tv.text = car?.stop()
-        }, 2000)
+        Handler().postDelayed({ ad_car_state_tv.text = car?.stop() }, 2000)
     }
 }
