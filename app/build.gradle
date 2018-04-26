@@ -51,7 +51,6 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:2.11"
     kapt 'com.google.dagger:dagger-compiler:2.11'
 
-
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    androidTestCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }

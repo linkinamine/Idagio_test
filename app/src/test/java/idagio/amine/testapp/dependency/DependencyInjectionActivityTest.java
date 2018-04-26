@@ -42,10 +42,4 @@ public class DependencyInjectionActivityTest {
         assertEquals(Const.DRIVER_IN + " " + Const.CAR_RUNNING, carRunning.getText());
     }
 
-    @Test
-    public void startCarIsFailed() throws Exception {
-        car.start();
-        TextView carRunning = dependencyInjectionActivity.findViewById(R.id.ad_car_state_tv);
-        assertEquals(Const.DRIVER_OUT + " " + Const.CAR_RUNNING, carRunning.getText());
-    }
 }
