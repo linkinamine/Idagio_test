@@ -21,6 +21,8 @@
     <activity
       android:name=".service.AlwaysRunningServiceActivity"
       android:launchMode="singleTask"/>
+    <activity
+      android:name=".dependency.DependencyInjectionActivity"/>
 
     <service
       android:name=".service.AlwaysRunningService">
